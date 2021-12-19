@@ -22,8 +22,9 @@
         );
 
         if (verifyLogin($connection, $username, $password)) {
-            showInfo("Welcome, $username");
             showSuccess('Login Successful');
+            showInfo("Welcome, $username!");
+            showDatabase($connection, "Database");
             echo "<a href=\"../index.html\" class=\"button is-link is-small m-1\">Back</a>";
         } else {
             showError('Login Failed');
