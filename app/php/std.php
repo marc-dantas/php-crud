@@ -26,17 +26,33 @@
     }
 
     function verifyLogin($connection, $username, $passwd) {
-        $sql = "SELECT * FROM `users` WHERE username = '$username' AND passwd = '$passwd'";
+        $sql = "SELECT * FROM `users` WHERE username = :username AND passwd = :passwd";
 
-        $stmt = queryCommand($connection, $sql);
-        $result = $stmt -> fetch();
-        
-        return $result ? true : false;
+        $stmt = queryCommand($connection, $sql, array(
+            ':username' => $username,
+            ':passwd' => $passwd
+        ));
+
+        return $stmt -> fetch() ? true : false;
+    }
+
+    function saveNewPassword($connection, $username, $passwd) {
+        $sql = "UPDATE `users` SET passwd = :passwd WHERE username = :username";
+
+        $stmt = queryCommand($connection, $sql, array(
+            ':username' => $username,
+            ':passwd' => $passwd
+        ));
+
+        return $stmt -> rowCount() > 0 ? true : false;
     }
 
     function register($connection, $username, $passwd) {
-        $sql = "INSERT INTO `users` (username, passwd) VALUES ('$username', '$passwd')";
-        $stmt = queryCommand($connection, $sql);
+        $sql = "INSERT INTO `users` (username, passwd) VALUES (:username, :passwd)";
+        $stmt = queryCommand($connection, $sql, array(
+            'username' => $username,
+            'passwd' => $passwd
+        ));
 
         return $stmt -> rowCount() > 0 ? true : false;
     }

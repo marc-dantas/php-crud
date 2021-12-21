@@ -13,7 +13,7 @@
         include 'std.php';
 
         $username = isset($_GET['username']) ? $_GET['username'] : '';
-        $password = isset($_GET['passwd']) ? $_GET['passwd'] : '';
+        $newpasswd = isset($_GET['newpasswd']) ? $_GET['newpasswd'] : '';
         $connection = connectDB(
             $database['host'],
             $database['dbname'],
@@ -21,12 +21,11 @@
             $database['pass']
         );
 
-        if (verifyLogin($connection, $username, $password)) {
-            showSuccess('Login Successful');
-            showInfo("Welcome, $username!");
+        if (saveNewPassword($connection, $username, $newpasswd)) {
+            showSuccess("Your password has been changed!");
             echo "<a href=\"../index.html\" class=\"button is-link is-small m-1\">Back</a>";
         } else {
-            showError('Login Failed');
+            showError('Password Change Failed');
             echo "<a href=\"../index.html\" class=\"button is-link is-small m-1\">Back</a>";
         }
     

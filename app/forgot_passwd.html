@@ -5,27 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Log-in</title>
 </head>
 <body>
     <section class="hero is-info">
         <div class="hero-body">
-            <p class="title is-1">Register</h1>
-            <p class="subtitle">Let here your credentials</p>
-            <form action="php/register.php" class="box is-half">
+            <p class="title is-1">Password Reset</h1>
+            <p class="subtitle">Let here your username and the new password to reset your password</p>
+            <form action="php/forgot_passwd.php" class="box">
                 <div class="field">
                     <div class="control">
-                        <input class="input is-medium" type="text" placeholder="Username" name="username" required>
-                    </div>
-                </div>
-                
-                <div class="field">
-                    <div class="control">
-                        <input class="input is-medium" type="password" placeholder="Password" name="passwd" required>
+                        <input class="input is-medium type="text" placeholder="Username" name="username" required>
                     </div>
                 </div>
 
-                <button class="button is-link" type="submit">Submit</button>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-medium type="password" placeholder="New Password" name="newpasswd" required>
+                    </div>
+                </div>
+                
+                <button class="button is-link" type="submit">Save</button>
             </form>
             <a href="index.html" class="button is-link is-small">Back</a>
             <a href="login.html" class="button is-link is-small">Go to login</a>
@@ -34,7 +34,7 @@
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>PHP Login/Regiser System</strong> by <a href="https://github.com/marc-dantas" target="_blank">Marcio Dantas</a>. The source code is licensed
+                <strong>PHP Login/Register System</strong> by <a href="https://github.com/marc-dantas" target="_blank">Marcio Dantas</a>. The source code is licensed
                 <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
             </p>
         </div>
