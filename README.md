@@ -1,4 +1,4 @@
-# Simple PHP Login/Register System
+# Simple PHP CRUD
 
 ## How to use:
 - Create a Apache server with PHP installed and a MySQL instance;
